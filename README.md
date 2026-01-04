@@ -1,263 +1,147 @@
-bohat zabardast 👍
-**ye output dekh kar officially keh sakta hoon: Member-A ka core kaam COMPLETE ho chuka hai** 🎉
-ab main **clear status + pipeline mapping + exact README.md (paste-ready)** sab deta hoon.
+# TRACE-AI RAG Chatbot
+
+A Retrieval-Augmented Generation (RAG) chatbot project built with Python, LangChain (new modular packages), HuggingFace embeddings, and FAISS.  
+This repository follows a **three-pipeline architecture** and is being developed step by step.
 
 ---
 
-# ✅ AB TAK KYA HO CHUKA HAI? (REAL STATUS)
+## Project Architecture (High Level)
 
-Tumhari pipeline ne ye successfully kar liya hai 👇
+The complete system is divided into **three pipelines**:
 
-### 🔹 1️⃣ Data Ingestion Pipeline ✅ **COMPLETE**
-
-✔️ PDFs load ho gayi
-✔️ Metadata attach ho gaya
-✔️ Pages → semantic chunks bane
-✔️ Embeddings generate ho gayi
-✔️ FAISS vectorstore me store ho gaya
-
-**Proof (tumhara output):**
-
-```
-✅ Loaded 120 pages
-✅ Generated 918 text chunks
-✅ FAISS vectorstore saved successfully
-```
-
-📌 **Is ka matlab:**
-👉 **Tumhari external knowledge ab vectors me convert ho chuki hai**
-👉 **RAG ka “brain” ready hai**
+1. **Data Ingestion Pipeline** ✅ (Member A – Mostly Completed)
+2. **Query & Retrieval Pipeline** ⏳ (Pending)
+3. **LLM Response Generation Pipeline** ⏳ (Pending)
 
 ---
 
-# 🧠 3-PIPELINE VIEW (BIG PICTURE)
+## 1. Data Ingestion Pipeline (Member A)
 
-Tum ne bilkul sahi kaha — RAG me 3 logical pipelines hoti hain:
+### ✅ Status: COMPLETED
 
-| Pipeline                             | Status    | Responsibility     |
-| ------------------------------------ | --------- | ------------------ |
-| **1. Data Ingestion**                | ✅ DONE    | **Member-A (YOU)** |
-| **2. Retriever / Similarity Search** | ⏳ PENDING | Member-B           |
-| **3. LLM + Context Answering**       | ⏳ PENDING | Member-B           |
+This pipeline is responsible for converting raw documents into searchable vector embeddings and storing them in a vector database.
 
----
+### What has been implemented:
 
-## 🔍 DETAIL BREAKDOWN (Member-A POV)
+#### 1. PDF Loading
+- Curated PDF documents are loaded from disk
+- Each PDF is converted into page-level documents
 
-### ✅ Tum ne kya kar diya (100% DONE)
-
-* Curated knowledge base design
-* Metadata-driven document loading
-* Chunking strategy (recursive splitter)
-* Embedding model selection
-* Vector DB (FAISS) creation
-* Persistence to disk
-* Sanity-checked pipeline end-to-end
-
-📌 **Industry me isay “Knowledge Engineering for RAG” kehte hain**
+**Output:**
+- `120` total PDF pages loaded
 
 ---
 
-### ❌ Member-A ke liye ab kya reh gaya?
+#### 2. Text Chunking
+- Pages are split into smaller overlapping text chunks
+- Uses `RecursiveCharacterTextSplitter`
 
-👉 **Nothing critical**
-(Optional polish only)
-
-Optional (agar extra marks chaho):
-
-* JSON validation
-* Logging improvement
-* Embedding model config via env
-* README polish (abhi main karwa raha hoon)
+**Output:**
+- `918` clean text chunks generated
 
 ---
 
-# 🧠 HANDOFF LINE (IMPORTANT)
+#### 3. Embedding Generation
+- Each text chunk is converted into a dense vector embedding
+- Model used:
+sentence-transformers/all-MiniLM-L6-v2
 
-Tum confidently Member-B ko ye keh sakti ho:
-
-> “The ingestion pipeline is complete. All curated PDFs have been chunked, embedded using sentence-transformers, and indexed in FAISS. The vectorstore is persisted and ready for retrieval and LLM-based response generation.”
-
-🔥 **Strong & professional**
-
----
-
-# 📄 NOW — FULL `README.md` (PASTE-READY)
-
-Neeche **complete README.md** hai.
-Tum **poora copy → README.md me paste → save** kar do.
+yaml
+Copy code
 
 ---
 
-## 📘 `README.md`
+#### 4. Vector Store Creation
+- FAISS is used as the vector database
+- All embeddings are stored locally for fast similarity search
 
-```markdown
-# TRACE-AI-RAG-Assistant
-
-TRACE-AI is a research-grade Retrieval-Augmented Generation (RAG) chatbot focused on skin cancer awareness, dermoscopic image analysis, and computer vision research. The system grounds large language model responses in authoritative external research papers using semantic search and vector databases.
-
----
-
-## 🚀 Project Overview
-
-Large Language Models (LLMs) often hallucinate or provide generic answers. TRACE-AI solves this problem by integrating a curated knowledge base of research papers with a modern RAG pipeline. The chatbot retrieves relevant context from trusted documents before generating responses.
-
-This repository currently contains the **complete data ingestion and vectorization pipeline**.
+**Output:**
+- FAISS vector index successfully saved to disk
 
 ---
 
-## 🧠 RAG Architecture
+### Confirmation of Completion
 
-The system follows a 3-stage RAG pipeline:
-
-1. **Data Ingestion (Completed)**
-2. **Query Retrieval (Pending)**
-3. **LLM-based Response Generation (Pending)**
+✔ Embeddings have been **successfully generated**  
+✔ Embeddings have been **stored in FAISS**  
+✔ Data ingestion pipeline is **fully functional and verified**
 
 ---
 
-## ✅ Completed: Data Ingestion Pipeline
+## Current Progress Summary
 
-The following steps have been fully implemented:
-
-### 1. Knowledge Curation
-- Raw PDFs stored for backup
-- Selected PDFs moved to a curated knowledge base
-- Metadata maintained for traceability and explainability
-
-### 2. Metadata-Aware PDF Loading
-- PDFs loaded using LangChain community loaders
-- Each document enriched with metadata (topic, year, domain)
-
-### 3. Text Chunking
-- Recursive semantic chunking
-- Chunk size: 800 tokens
-- Overlap: 150 tokens
-
-### 4. Embedding Generation
-- Model: `sentence-transformers/all-MiniLM-L6-v2`
-- Free, fast, and production-tested
-
-### 5. Vector Database
-- FAISS used for similarity search
-- Vectorstore persisted locally for reuse
+| Pipeline | Description | Status |
+|--------|------------|--------|
+| Pipeline 1 | Data Ingestion (PDF → Chunks → Embeddings → FAISS) | ✅ Completed |
+| Pipeline 2 | Query Processing + Retriever (Cosine Similarity) | ❌ Not Started |
+| Pipeline 3 | Context Injection + LLM Response Generation | ❌ Not Started |
 
 ---
 
-## 📂 Project Structure
+## Project Structure (Current)
 
-```
-
-project_root/
-│
-├── data/
-│   ├── raw_pdfs/          # Original PDFs (backup)
-│   ├── curated_pdfs/      # Knowledge base used by RAG
-│   └── metadata/
-│       └── metadata.json  # Document metadata
+TRACE-AI-RAG-Chatbot/
 │
 ├── ingestion/
-│   ├── pdf_loader.py      # Metadata-aware PDF loader
-│   ├── text_splitter.py   # Semantic chunking
-│   ├── embed_store.py     # Embeddings + FAISS storage
-│   └── run_ingestion.py   # One-click ingestion pipeline
+│ ├── init.py
+│ ├── run_ingestion.py
+│ ├── pdf_loader.py
+│ ├── text_splitter.py
+│ └── embed_store.py
 │
 ├── vectorstore/
-│   └── faiss_index/       # Persisted vector database
+│ └── faiss_index/
 │
-├── config/
-│   └── settings.py        # Central configuration
+├── data/
+│ └── curated_pdfs/
 │
-├── utils/
-│   └── logger.py
+├── venv/
 │
-└── requirements.txt
+└── README.md
 
-````
+yaml
+Copy code
 
 ---
 
-## ▶️ How to Run Ingestion
+## How Ingestion Was Run
 
 ```bash
 python -m ingestion.run_ingestion
-````
+Successful execution confirms:
 
-Successful execution will:
+PDFs loaded
 
-* Load PDFs
-* Generate chunks
-* Create embeddings
-* Save FAISS vectorstore
+Text chunks created
 
----
+Embeddings generated
 
-## 🧪 Output Example
+FAISS vector store saved
 
-```
-✅ Loaded 120 pages from curated PDFs
-✅ Generated 918 text chunks
-✅ FAISS vectorstore saved successfully
-```
+Next Steps (Remaining Work)
+Pipeline 2: Query & Retrieval
+Load FAISS vector store
 
----
+Embed user query
 
-## 🔜 Next Steps
+Apply cosine similarity search
 
-* Implement query retriever using FAISS similarity search
-* Integrate LLM with retrieved context
-* Build Streamlit-based chatbot UI
+Retrieve top-k relevant chunks
 
----
+Pipeline 3: LLM Generation
+Inject retrieved context into prompt
 
-## 👥 Team Contributions
+Pass prompt to LLM
 
-**Member A**
+Generate final grounded response
 
-* Knowledge base design
-* Metadata management
-* Ingestion pipeline
-* Vector database creation
+Notes
+LangChain deprecated imports have been fixed
 
-**Member B**
+Project now uses updated modular packages
 
-* Retriever logic
-* LLM integration
-* Prompt engineering
-* Streamlit UI
+The system is stable up to the ingestion stage
 
----
-
-## 📌 Technologies Used
-
-* Python
-* LangChain (modular ecosystem)
-* HuggingFace Transformers
-* Sentence-Transformers
-* FAISS
-* Streamlit (upcoming)
-
----
-
-## 📜 License
-
-This project is intended for educational and research purposes.
-
-```
-
----
-
-# 🏁 FINAL VERDICT
-
-✅ **Member-A ka kaam 100% complete**  
-✅ Tum ne **real RAG system ka hardest part** bana diya  
-✅ Ab project ka base **industry-grade** hai  
-
-Agar chaho next:
-- 🔍 Retriever ka maths + cosine similarity
-- 🧠 Prompt engineering design
-- 🎤 Viva / defense answers
-- 📈 Evaluation metrics (MRR, Recall@K)
-
-bas bolo — ab tum beginner nahi rahi 💪
-```
+Conclusion
+Member A’s responsibility (Data Ingestion) is almost 100% complete.
+The system is now ready to move into retrieval and LLM integration.
