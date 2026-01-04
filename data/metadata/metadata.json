@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "filename": "Image_Reconstruction_techniques.pdf",
+    "topic": "Image Reconstruction Techniques for Medical Imaging",
+    "domain": "Computer Vision",
+    "modality": "Medical Images",
+    "year": 2020,
+    "source_type": "Research Paper"
+  },
+  {
+    "id": 2,
+    "filename": "Nanomaterials in Skin Cancer.pdf",
+    "topic": "Role of Nanomaterials in Skin Cancer Diagnosis and Treatment",
+    "domain": "Biomedical Engineering",
+    "modality": "Skin Cancer Analysis",
+    "year": 2021,
+    "source_type": "Research Paper"
+  },
+  {
+    "id": 3,
+    "filename": "Novel insights into immune theropy.pdf",
+    "topic": "Novel Insights into Immunotherapy for Skin Cancer",
+    "domain": "Medical Research",
+    "modality": "Cancer Immunotherapy",
+    "year": 2022,
+    "source_type": "Research Paper"
+  },
+  {
+    "id": 4,
+    "filename": "Research_Article_Hair_Removal.pdf",
+    "topic": "Hair Removal Techniques in Dermoscopic Images",
+    "domain": "Computer Vision",
+    "modality": "Dermoscopic Image Preprocessing",
+    "year": 2019,
+    "source_type": "Research Paper"
+  },
+  {
+    "id": 5,
+    "filename": "skin cancer detection ConvNext2 and Attention.pdf",
+    "topic": "Skin Cancer Detection using ConvNeXtV2 and Attention Mechanisms",
+    "domain": "Deep Learning",
+    "modality": "Skin Lesion Classification",
+    "year": 2023,
+    "source_type": "Research Paper"
+  }
+]
